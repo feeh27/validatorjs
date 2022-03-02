@@ -30,6 +30,7 @@ module.exports = {
     string: 'The :attribute may not be greater than :max characters.'
   },
   not_in: 'The selected :attribute is invalid.',
+  not_null: 'The :attribute doesn\'t accept null values.',
   numeric: 'The :attribute must be a number.',
   present: 'The :attribute field must be present (but can be empty).',
   required: 'The :attribute field is required.',

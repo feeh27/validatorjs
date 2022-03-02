@@ -60,6 +60,27 @@ Validator.prototype = {
         continue;
       }
 
+      if (inputValue === null) {
+        const hasNullable = attributeRules.some((attrRule) => attrRule.name === 'nullable');
+
+        // If it has nullable validation, ignore other validations
+        if (hasNullable) {
+          continue;
+        }
+
+        // Add validation to the beginning of the validation array, to be the first validation
+        attributeRules.unshift({ name: 'not_null' });
+
+        if (!(this.stopOnAttributes instanceof Array) && this._shouldStopValidating(attribute) === false) {
+          this.stopOnAttributes = [];
+        }
+
+        if (this.stopOnAttributes instanceof Array) {
+          // Add attribute to stop on error
+          this.stopOnAttributes.push(attribute);
+        }
+      }
+
       for (var i = 0, len = attributeRules.length, rule, ruleOptions, rulePassed; i < len; i++) {
         ruleOptions = attributeRules[i];
         rule = this.getRule(ruleOptions.name);

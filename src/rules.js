@@ -349,6 +349,14 @@ var rules = {
     return returnVal;
   },
 
+  not_null: function (val, req) {
+    return val !== null;
+  },
+
+  nullable: function (val, req) {
+    return true;
+  },
+
   accepted: function (val) {
     if (val === "on" || val === "yes" || val === 1 || val === "1" || val === true) {
       return true;

@@ -76,6 +76,7 @@ module.exports = {
     array: "O campo :attribute deve conter no mínimo :min itens."
   },
   not_in: "O campo :attribute contém um valor inválido.",
+  not_null: 'O campo :attribute não aceita valores nulos.',
   not_regex: "O formato do valor :attribute é inválido.",
   numeric: "O campo :attribute deve conter um valor numérico.",
   present: "O campo :attribute deve estar presente.",
